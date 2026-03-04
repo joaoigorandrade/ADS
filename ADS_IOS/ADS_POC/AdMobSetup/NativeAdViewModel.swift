@@ -22,12 +22,13 @@ class NativeAdViewModel: NSObject, ObservableObject, AdLoaderDelegate, NativeAdL
         }
         
         let options = NativeAdImageAdLoaderOptions()
-        
+        let mediaOptions = NativeAdMediaAdLoaderOptions()
+        mediaOptions.mediaAspectRatio = .portrait
         adLoader = AdLoader(
             adUnitID: adUnitID,
             rootViewController: rootVC,
             adTypes: [.native],
-            options: [options]
+            options: [mediaOptions, options]
         )
         
         adLoader?.delegate = self
